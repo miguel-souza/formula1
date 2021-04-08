@@ -1,0 +1,312 @@
+swagger: '2.0'
+
+schemes:
+  - https
+
+host: localhost:8080
+basePath: /f1/v1
+tags:
+  - name: "Temporadas"
+    description: "Operações disponíveis para o recurso Temporadas"
+  - name: "Pilotos"
+    description: "Operações disponíveis para o recurso Pilotos"
+  - name: "Equipes"
+    description: "Operações disponíveis para o recurso Equipes"
+info:
+  version: 1.0.0
+  title: API F1
+  description: API que fornece um histórico de dados das corridas de Fórmula 1
+  
+consumes:
+  - application/json
+produces:
+  - application/json
+    
+paths:
+  '/temporadas':
+    get:
+      tags:
+        - "Temporadas"
+      summary: Obter temporadas
+      description: Obter as temporadas da F1
+      responses:
+        200:
+          description: Temporadas obtidas com sucesso
+          schema:
+            type: array 
+            items:
+              $ref: '#/definitions/Temporada'
+        404:
+          description: Recurso não encontrado
+          schema:
+            $ref: '#/definitions/errorBody404'
+        500:
+          description: Erro interno no servidor
+          schema:
+            $ref: '#/definitions/errorBody500'
+            
+  '/temporadas/pilotos/{id}':
+    get:
+      tags:
+        - "Temporadas"
+      summary: Obter temporadas que um piloto participou
+      description: Obter temporadas que um determinado piloto participou
+      parameters:
+        - in: path
+          name: id
+          type: string
+          required: true
+          description: "nome do piloto, ex: alonso"
+      responses:
+        200:
+          description: Temporadas obtidas com sucesso
+          schema:
+            type: array 
+            items:
+              $ref: '#/definitions/Temporada'
+        404:
+          description: Recurso não encontrado
+          schema:
+            $ref: '#/definitions/errorBody404'
+        500:
+          description: Erro interno no servidor
+          schema:
+            $ref: '#/definitions/errorBody500'
+    
+  '/temporadas/equipes/{id}':
+    get:
+      tags:
+        - "Temporadas"
+      summary: Obter todas as temporadas que uma equipe participou
+      description: Obter todas as temporadas que uma determinada equipe participou
+      parameters:
+        - in: path
+          name: id
+          type: string
+          required: true
+          description: "nome da equipe, ex: renault"
+      responses:
+        200:
+          description: Temporadas obtidas com sucesso
+          schema:
+            type: array 
+            items:
+              $ref: '#/definitions/Temporada'
+        404:
+          description: Recurso não encontrado
+          schema:
+            $ref: '#/definitions/errorBody404'
+        500:
+          description: Erro interno no servidor
+          schema:
+            $ref: '#/definitions/errorBody500'
+            
+  '/pilotos':
+    get:
+      tags:
+        - "Pilotos"
+      summary: Obter os dados de todos os pilotos
+      description: Obter os dados de todos os pilotos da F1
+      responses:
+        200:
+          description: Dados obtidos com sucesso
+          schema:
+            type: array 
+            items:
+              $ref: '#/definitions/Piloto'
+        404:
+          description: Recurso não encontrado
+          schema:
+            $ref: '#/definitions/errorBody404'
+        500:
+          description: Erro interno no servidor
+          schema:
+            $ref: '#/definitions/errorBody500
+            
+  '/pilotos/{id}':
+    get:
+      tags:
+        - "Pilotos"
+      summary: Obter os dados de um piloto
+      description: Obter os dados de um determinado piloto
+      parameters:
+      - in: path
+        name: id
+        type: string
+        required: true
+        description: "nome do piloto, ex: alonso"
+      responses:
+        200:
+          description: Dados obtidos com sucesso
+          schema:
+            $ref: '#/definitions/Piloto'
+        404:
+          description: Recurso não encontrado
+          schema:
+            $ref: '#/definitions/errorBody404'
+        500:
+          description: Erro interno no servidor
+          schema:
+            $ref: '#/definitions/errorBody500'
+            
+  '/pilotos/{ano}':
+    get:
+      tags:
+        - "Pilotos"
+      summary: Obter os dados dos pilotos que correram em determinado ano
+      description: Obter os dados dos pilotos que correram em determinado ano
+      parameters:
+      - in: path
+        name: ano
+        type: integer
+        required: true
+        description: "ano desejado, ex: 2010"
+      responses:
+        200:
+          description: Dados obtidos com sucesso
+          schema:
+            type: array 
+            items:
+              $ref: '#/definitions/Piloto'
+        404:
+          description: Recurso não encontrado
+          schema:
+            $ref: '#/definitions/errorBody404'
+        500:
+          description: Erro interno no servidor
+          schema:
+            $ref: '#/definitions/errorBody500'
+            
+  '/equipes':
+    get:
+      tags:
+        - "Equipes"
+      summary: Obter os dados de todas as equipes
+      description: Obter os dados de todas as equipes da F1
+      responses:
+        200:
+          description: Dados obtidos com sucesso
+          schema:
+            type: array 
+            items:
+              $ref: '#/definitions/Equipe'
+        404:
+          description: Recurso não encontrado
+          schema:
+            $ref: '#/definitions/errorBody404'
+        500:
+          description: Erro interno no servidor
+          schema:
+            $ref: '#/definitions/errorBody500'
+            
+  '/equipes/{id}':
+    get:
+      tags:
+        - "Equipes"
+      summary: Obter os dados de uma equipe
+      description: Obter os dados de uma determinada equipe
+      parameters:
+      - in: path
+        name: id
+        type: string
+        required: true
+        description: "equipe desejada, ex: renault"
+      responses:
+        200:
+          description: Dados obtidos com sucesso
+          schema:
+              $ref: '#/definitions/Equipe'
+        404:
+          description: Recurso não encontrado
+          schema:
+            $ref: '#/definitions/errorBody404'
+        500:
+          description: Erro interno no servidor
+          schema:
+            $ref: '#/definitions/errorBody500'
+            
+  '/equipes/{ano}':
+    get:
+      tags:
+        - "Equipes"
+      summary: Obter os dados de todas as equipes que participaram em um determinado ano
+      description: Obter os dados de todas as equipes que participaram em um determinado ano
+      parameters:
+      - in: path
+        name: ano
+        type: integer
+        required: true
+        description: "ano desejado, ex: 2010"
+      responses:
+        200:
+          description: Dados obtidos com sucesso
+          schema:
+            type: array 
+            items:
+              $ref: '#/definitions/Equipe'
+        404:
+          description: Recurso não encontrado
+          schema:
+            $ref: '#/definitions/errorBody404'
+        500:
+          description: Erro interno no servidor
+          schema:
+            $ref: '#/definitions/errorBody500'
+                
+definitions:
+  Temporada:
+    type: object
+    properties:
+      ano:
+        type: integer
+        format: int65
+        example: 2010
+      url:
+        type: string
+        example: https://en.wikipedia.org/wiki/2010_Formula_One_season
+        
+  Piloto:
+    type: object
+    properties:
+      id:
+        type: string
+        example: alonso
+      nome:
+        type: string
+        example: Fernando
+      sobrenome:
+        type: string
+        example: Alonso
+      dataDeNascimento:
+        type: string
+        example: "29/07/1981"
+      nacionalidade:
+        type: string
+        example: "Espanhol"
+        
+  Equipe:
+    type: object
+    properties:
+      id:
+        type: string
+        example: renault
+      nome:
+        type: string
+        example: Renault
+      nacionalidade:
+        type: string
+        example: French
+  
+  errorBody404:
+    type: object
+    properties:
+      erro:
+        type: string
+        example: Recurso não encontrado.
+        
+  errorBody500:
+    type: object
+    properties:
+      erro:
+        type: string
+        example: Ocorreu um erro interno no servidor.

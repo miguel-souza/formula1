@@ -1,0 +1,253 @@
+{
+	"info": {
+		"_postman_id": "0bb2583f-dc33-4538-9396-4eef1d9689db",
+		"name": "F1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Temporadas",
+			"item": [
+				{
+					"name": "200 - Sucesso",
+					"item": [
+						{
+							"name": "200 - Obter todas as temporadas",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/temporadas",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"temporadas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "200 - Obter todas as temporadas que um piloto participou",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/temporadas/pilotos/alonso",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"temporadas",
+										"pilotos",
+										"alonso"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "200 - Obter todas as temporadas que uma equipe participou",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/temporadas/equipes/renault",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"temporadas",
+										"equipes",
+										"renault"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "404 - Recurso não encontrado",
+					"item": [
+						{
+							"name": "404 - Obter todas as temporadas que um piloto participou",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/temporadas/pilotos/alon",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"temporadas",
+										"pilotos",
+										"alon"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "404 - Obter todas as temporadas que uma equipe participou",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/temporadas/equipes/renaul",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"temporadas",
+										"equipes",
+										"renaul"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Pilotos",
+			"item": [
+				{
+					"name": "200 - Sucesso",
+					"item": [
+						{
+							"name": "200 - Obter todos os pilotos",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/pilotos",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"pilotos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "200 - Obter piloto por id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/pilotos/alonso",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"pilotos",
+										"alonso"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "404 - Recurso não encontrado",
+					"item": [
+						{
+							"name": "404 - Obter piloto por id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/pilotos/alon",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"pilotos",
+										"alon"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Equipes",
+			"item": [
+				{
+					"name": "200 - Sucesso",
+					"item": [
+						{
+							"name": "200 - Obter todas as equipes",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/equipes",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"equipes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "200 - Obter equipe por id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/equipes/renault",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"equipes",
+										"renault"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "404 - Recurso não encontrado",
+					"item": [
+						{
+							"name": "404 - Obter equipe por id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/equipes/renau",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"equipes",
+										"renau"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
