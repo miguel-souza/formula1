@@ -149,34 +149,6 @@ paths:
           schema:
             $ref: '#/definitions/errorBody500'
             
-  '/pilotos/{ano}':
-    get:
-      tags:
-        - "Pilotos"
-      summary: Obter os dados dos pilotos que correram em determinado ano
-      description: Obter os dados dos pilotos que correram em determinado ano
-      parameters:
-      - in: path
-        name: ano
-        type: integer
-        required: true
-        description: "ano desejado, ex: 2010"
-      responses:
-        200:
-          description: Dados obtidos com sucesso
-          schema:
-            type: array 
-            items:
-              $ref: '#/definitions/Piloto'
-        404:
-          description: Recurso não encontrado
-          schema:
-            $ref: '#/definitions/errorBody404'
-        500:
-          description: Erro interno no servidor
-          schema:
-            $ref: '#/definitions/errorBody500'
-            
   '/equipes':
     get:
       tags:
@@ -215,34 +187,6 @@ paths:
         200:
           description: Dados obtidos com sucesso
           schema:
-              $ref: '#/definitions/Equipe'
-        404:
-          description: Recurso não encontrado
-          schema:
-            $ref: '#/definitions/errorBody404'
-        500:
-          description: Erro interno no servidor
-          schema:
-            $ref: '#/definitions/errorBody500'
-            
-  '/equipes/{ano}':
-    get:
-      tags:
-        - "Equipes"
-      summary: Obter os dados de todas as equipes que participaram em um determinado ano
-      description: Obter os dados de todas as equipes que participaram em um determinado ano
-      parameters:
-      - in: path
-        name: ano
-        type: integer
-        required: true
-        description: "ano desejado, ex: 2010"
-      responses:
-        200:
-          description: Dados obtidos com sucesso
-          schema:
-            type: array 
-            items:
               $ref: '#/definitions/Equipe'
         404:
           description: Recurso não encontrado
@@ -303,10 +247,16 @@ definitions:
       erro:
         type: string
         example: Recurso não encontrado.
+      descricao:
+        type: string
+        example: Não foi encontrado um recurso para o id informado.
         
   errorBody500:
     type: object
     properties:
       erro:
+        type: string
+        example: Ocorreu um erro interno no servidor.
+      descricao:
         type: string
         example: Ocorreu um erro interno no servidor.
