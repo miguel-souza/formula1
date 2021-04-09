@@ -9,8 +9,8 @@ A API F1 contém 3 recursos:
 * Pilotos
 * Equipes
 
-###Pré-requisitos
-JDK 11
+### Pré-requisitos
+É necessário ter a JDK 11 instalada
 
 ### Swagger
 É possível acessar a documentação da API feita no Swagger, procure o arquivo [api-f1.yaml](api-f1.yaml) na raiz deste projeto, lá contém as especificações de cada recurso e operação.
