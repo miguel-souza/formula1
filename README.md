@@ -1,6 +1,5 @@
 # Formula 1
-Aplicação que fornece um histórico de dados das corridas de Fórmula 1
-
+Aplicação que fornece um histórico de dados das corridas de Fórmula 1.
 
 ## API F1
 A API F1 contém 3 recursos:
